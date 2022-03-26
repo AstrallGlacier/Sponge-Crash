@@ -1,0 +1,186 @@
+---- Minecraft Crash Report ----
+
+WARNING: coremods are present:
+  KonkreteCore (konkrete_forge_1.3.3_MC_1.12-1.12.2.jar)
+  OpenModsCorePlugin (OpenModsLib-1.12.2-0.12.2.jar)
+  SpongeCoremod (spongeforge-1.12.2-2838-7.4.3.jar)
+  PixelmoneyCoreMod (PixelMoney-1.12.2-3.0.6-server.jar)
+  CTMCorePlugin (CTM-MC1.12.2-1.0.2.31.jar)
+Contact their authors BEFORE contacting forge
+
+// You're mean.
+
+Time: 26/03/22 1:30 PM
+Description: Ticking block entity
+
+org.spongepowered.asm.mixin.injection.throwables.InjectionError: LVT in net/minecraft/world/World::func_175713_t(Lnet/minecraft/util/math/BlockPos;)V has incompatible changes at opcode 15 in callback mixins.common.core.json:world.WorldMixin->@Inject::onCheckTileEntityForRemoval(Lnet/minecraft/util/math/BlockPos;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lnet/minecraft/tileentity/TileEntity;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)V.
+ Expected: [Lnet/minecraft/tileentity/TileEntity;, Lnet/minecraft/world/World;, Lnet/minecraft/util/math/BlockPos;]
+    Found: [Lnet/minecraft/tileentity/TileEntity;]
+Available: [Lnet/minecraft/tileentity/TileEntity;]
+	at net.minecraft.world.World.handler$zlm000$onCheckTileEntityForRemoval$missing(World.java)
+	at net.minecraft.world.World.func_175713_t(World.java:2473)
+	at net.minecraft.block.BlockContainer.func_180663_b(SourceFile:48)
+	at net.minecraft.world.chunk.Chunk.bridge$setBlockState(Chunk.java:3742)
+	at org.spongepowered.common.event.tracking.PhaseTracker.setBlockState(PhaseTracker.java:893)
+	at net.minecraft.world.WorldServer.func_180501_a(WorldServer.java:4520)
+	at net.minecraft.world.World.func_175698_g(World.java:398)
+	at com.pixelmonmod.pixelmon.blocks.tileEntities.TileEntityBerryTree.func_73660_a(TileEntityBerryTree.java:129)
+	at org.spongepowered.common.event.tracking.TrackingUtil.tickTileEntity(TrackingUtil.java:237)
+	at net.minecraft.world.WorldServer.updateTileEntity(WorldServer.java:4749)
+	at net.minecraft.world.WorldServer.redirect$zlm000$onUpdateTileEntities(WorldServer.java:4733)
+	at net.minecraft.world.World.func_72939_s(World.java:1838)
+	at net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:3931)
+	at net.minecraft.server.MinecraftServer.func_71190_q(MinecraftServer.java:767)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71190_q(DedicatedServer.java:397)
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:668)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.minecraft.world.World.handler$zlm000$onCheckTileEntityForRemoval$missing(World.java)
+	at net.minecraft.world.World.func_175713_t(World.java:2473)
+	at net.minecraft.block.BlockContainer.func_180663_b(SourceFile:48)
+	at net.minecraft.world.chunk.Chunk.bridge$setBlockState(Chunk.java:3742)
+	at org.spongepowered.common.event.tracking.PhaseTracker.setBlockState(PhaseTracker.java:893)
+	at net.minecraft.world.WorldServer.func_180501_a(WorldServer.java:4520)
+	at net.minecraft.world.World.func_175698_g(World.java:398)
+	at com.pixelmonmod.pixelmon.blocks.tileEntities.TileEntityBerryTree.func_73660_a(TileEntityBerryTree.java:129)
+	at org.spongepowered.common.event.tracking.TrackingUtil.tickTileEntity(TrackingUtil.java:237)
+	at net.minecraft.world.WorldServer.updateTileEntity(WorldServer.java:4749)
+	at net.minecraft.world.WorldServer.redirect$zlm000$onUpdateTileEntities(WorldServer.java:4733)
+
+-- Block entity being ticked --
+Details:
+	Name: pixelmon:berry_tree // com.pixelmonmod.pixelmon.blocks.tileEntities.TileEntityBerryTree
+	Block type: ID #0 (tile.air // net.minecraft.block.BlockAir // minecraft:air)
+	Block data value: 0 / 0x0 / 0b0000
+	Block location: World: (2011,63,305), Chunk: (at 11,3,1 in 125,19; contains blocks 2000,0,304 to 2015,255,319), Region: (3,0; contains chunks 96,0 to 127,31, blocks 1536,0,0 to 2047,255,511)
+	Actual block type: ID #0 (tile.air // net.minecraft.block.BlockAir // minecraft:air)
+	Actual block data value: 0 / 0x0 / 0b0000
+Stacktrace:
+	at net.minecraft.world.World.func_72939_s(World.java:1838)
+	at net.minecraft.world.WorldServer.func_72939_s(WorldServer.java:3931)
+
+-- Affected level --
+Details:
+	Level name: pixelpoggers
+	All players: 1 total; [EntityPlayerMP['AstralGlacier'/36, l='pixelpoggers', x=2009.80, y=63.00, z=302.55]]
+	Chunk stats: ServerChunkCache: 907 Drop: 0
+	Level seed: 887988367760370187
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: 
+	Level spawn location: World: (-251,64,-36), Chunk: (at 5,4,12 in -16,-3; contains blocks -256,0,-48 to -241,255,-33), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Level time: 291017 game time, 301167 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 1285 (now: true), thunder time: 65731 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+
+-- Sponge PhaseTracker --
+Details:
+	Phase Stack: [Empty stack]
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.handler$zjh000$onCrashReport(MinecraftServer.java:4687)
+	at net.minecraft.server.MinecraftServer.func_71230_b(MinecraftServer.java:889)
+	at net.minecraft.server.dedicated.DedicatedServer.func_71230_b(DedicatedServer.java:371)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:554)
+	at java.lang.Thread.run(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_321, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1822070696 bytes (1737 MB) / 4089970688 bytes (3900 MB) up to 7635730432 bytes (7282 MB)
+	JVM Flags: 1 total; -Xmx8192M
+	IntCache: cache: 0, tcache: 0, allocated: 20, tallocated: 86
+	FML: MCP 9.42 Powered by Forge 14.23.5.2860 36 mods loaded, 36 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	Mods:
+
+	| State  | ID                  | Version                | Source                                        | Signature                                |
+	|:------ |:------------------- |:---------------------- |:--------------------------------------------- |:---------------------------------------- |
+	| LCHIJA | minecraft           | 1.12.2                 | minecraft.jar                                 | None                                     |
+	| LCHIJA | mcp                 | 9.42                   | minecraft.jar                                 | None                                     |
+	| LCHIJA | FML                 | 8.0.99.99              | forge-1.12.2-14.23.5.2860.jar                 | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCHIJA | forge               | 14.23.5.2860           | forge-1.12.2-14.23.5.2860.jar                 | e3c3d50c7c986df74c645c0ac54639741c90a557 |
+	| LCHIJA | spongeapi           | 7.4.0-500a60a          | spongeforge-1.12.2-2838-7.4.3.jar             | None                                     |
+	| LCHIJA | sponge              | 1.12.2-7.4.3           | spongeforge-1.12.2-2838-7.4.3.jar             | None                                     |
+	| LCHIJA | spongeforge         | 1.12.2-2838-7.4.3      | spongeforge-1.12.2-2838-7.4.3.jar             | None                                     |
+	| LCHIJA | openmodscore        | 0.12.2                 | minecraft.jar                                 | None                                     |
+	| LCHIJA | betterdexrewards    | 2.1.7                  | BetterDexRewards-Forge-2.1.7.jar              | None                                     |
+	| LCHIJA | biomesoplenty       | 7.0.1.2445             | BiomesOPlenty-1.12.2-7.0.1.2445-universal.jar | None                                     |
+	| LCHIJA | bop_patch           | 1.0                    | BOP-Patch-1.0.jar                             | None                                     |
+	| LCHIJA | jei                 | 4.16.1.301             | jei_1.12.2-4.16.1.301.jar                     | None                                     |
+	| LCHIJA | chisel              | MC1.12.2-1.0.2.45      | Chisel-MC1.12.2-1.0.2.45.jar                  | None                                     |
+	| LCHIJA | pixelmon            | 8.3.7                  | Pixelmon-1.12.2-8.3.7-universal.jar           | None                                     |
+	| LCHIJA | mantle              | 1.12-1.3.3.55          | Mantle-1.12-1.3.3.55.jar                      | None                                     |
+	| LCHIJA | tconstruct          | 1.12.2-2.13.0.183      | TConstruct-1.12.2-2.13.0.183.jar              | None                                     |
+	| LCHIJA | extrautils2         | 1.0                    | extrautils2-1.12-1.9.9.jar                    | None                                     |
+	| LCHIJA | gameshark           | 6.0.6                  | Gameshark-1.12.2-6.0.6-universal.jar          | None                                     |
+	| LCHIJA | konkrete            | 1.3.3                  | konkrete_forge_1.3.3_MC_1.12-1.12.2.jar       | None                                     |
+	| LCHIJA | morpheus            | 1.12.2-3.5.106         | Morpheus-1.12.2-3.5.106.jar                   | None                                     |
+	| LCHIJA | naturescompass      | 1.8.5                  | NaturesCompass-1.12.2-1.8.5.jar               | None                                     |
+	| LCHIJA | openmods            | 0.12.2                 | OpenModsLib-1.12.2-0.12.2.jar                 | d2a9a8e8440196e26a268d1f3ddc01b2e9c572a5 |
+	| LCHIJA | openblocks          | 1.8.1                  | OpenBlocks-1.12.2-1.8.1.jar                   | d2a9a8e8440196e26a268d1f3ddc01b2e9c572a5 |
+	| LCHIJA | oreexcavation       | 1.4.150                | OreExcavation-1.4.150.jar                     | None                                     |
+	| LCHIJA | harvestcraft        | 1.12.2zb               | Pam's HarvestCraft 1.12.2zg.jar               | None                                     |
+	| LCHIJA | pixelextras         | 2.5.17                 | PixelExtras-1.12.2-2.5.17-universal.jar       | None                                     |
+	| LCHIJA | pixelmonbroadcasts  | 1.12.2-1.2.3-universal | PixelmonBroadcasts-1.12.2-1.2.3-universal.jar | None                                     |
+	| LCHIJA | pixelmonfriends     | 2.3.1                  | pixelmonfriends-1.12.2-2.3.1-universal.jar    | None                                     |
+	| LCHIJA | pixelmoninformation | 1.5.0                  | PixelmonInformation-1.12.2-8.3.0-1.5.0.jar    | None                                     |
+	| LCHIJA | refinedstorage      | 1.6.16                 | refinedstorage-1.6.16.jar                     | 57893d5b90a7336e8c63fe1c1e1ce472c3d59578 |
+	| LCHIJA | waystones           | 4.1.0                  | Waystones_1.12.2-4.1.0.jar                    | None                                     |
+
+
+	Plugins:
+
+	| State  | ID                       | Version      | Source                                         | Signature |
+	|:------ |:------------------------ |:------------ |:---------------------------------------------- |:--------- |
+	| LCHIJA | clearmob                 | 1.12.2-3.1.0 | ClearMob-1.12.2-3.1.0.jar                      | None      |
+	| LCHIJA | evenmorepixelmoncommands | 5.1.3        | EvenMorePixelmonCommands-1.12.2-5.1.3.jar      | None      |
+	| LCHIJA | luckperms                | 5.3.98       | LuckPerms-Sponge-5.3.98.jar                    | None      |
+	| LCHIJA | nucleus                  | 2.4.0        | Nucleus-2.4.0-MC1.12.2-SpongeAPI7.3-plugin.jar | None      |
+	| LCHIJA | pixelmoney               | 3.0.6        | PixelMoney-1.12.2-3.0.6-server.jar             | None      |
+
+	Loaded coremods (and transformers): 
+KonkreteCore (konkrete_forge_1.3.3_MC_1.12-1.12.2.jar)
+  
+OpenModsCorePlugin (OpenModsLib-1.12.2-0.12.2.jar)
+  openmods.core.OpenModsClassTransformer
+SpongeCoremod (spongeforge-1.12.2-2838-7.4.3.jar)
+  org.spongepowered.common.launch.transformer.SpongeSuperclassTransformer
+PixelmoneyCoreMod (PixelMoney-1.12.2-3.0.6-server.jar)
+  
+CTMCorePlugin (CTM-MC1.12.2-1.0.2.31.jar)
+  team.chisel.ctm.client.asm.CTMTransformer
+	OpenModsLib class transformers: [llama_null_fix:FINISHED],[horse_base_null_fix:FINISHED],[pre_world_render_hook:ENABLED],[player_render_hook:ENABLED],[horse_null_fix:FINISHED]
+	Pulsar/tconstruct loaded Pulses: 
+		- TinkerCommons (Enabled/Forced)
+		- TinkerWorld (Enabled/Not Forced)
+		- TinkerTools (Enabled/Not Forced)
+		- TinkerHarvestTools (Enabled/Forced)
+		- TinkerMeleeWeapons (Enabled/Forced)
+		- TinkerRangedWeapons (Enabled/Forced)
+		- TinkerModifiers (Enabled/Forced)
+		- TinkerSmeltery (Enabled/Not Forced)
+		- TinkerGadgets (Enabled/Not Forced)
+		- TinkerOredict (Enabled/Forced)
+		- TinkerIntegration (Enabled/Forced)
+		- TinkerFluids (Enabled/Forced)
+		- TinkerMaterials (Enabled/Forced)
+		- TinkerModelRegister (Enabled/Forced)
+		- chiselIntegration (Enabled/Not Forced)
+
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 20; [EntityPlayerMP['AstralGlacier'/36, l='pixelpoggers', x=2009.80, y=63.00, z=302.55]]
+	Is Modded: Definitely; Server brand changed to 'fml,forge,sponge'
+	Type: Dedicated Server (map_server.txt)
